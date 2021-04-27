@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Touch.gd" type="Script" id=2]
+
+[node name="Touch" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MoveButtons" type="HBoxContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -96.0
+margin_right = 288.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/MoveButtons"]
+margin_right = 142.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+align = 0
+expand_icon = true
+
+[node name="Button2" type="Button" parent="CanvasLayer/MoveButtons"]
+margin_left = 146.0
+margin_right = 288.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+align = 2
+expand_icon = true
+[connection signal="button_down" from="CanvasLayer/MoveButtons/Button" to="." method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MoveButtons/Button2" to="." method="_on2_button_down"]

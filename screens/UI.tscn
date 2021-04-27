@@ -1,0 +1,201 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://ui/ChangeSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/UI.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://ui/RetryButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/QuitButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/Title.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/ui/uibckgnd.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/left.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/jump.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/right.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/up.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/lifebaralt.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/lifebar.png" type="Texture" id=13]
+[ext_resource path="res://assets/ui/bossbaralt.png" type="Texture" id=14]
+[ext_resource path="res://assets/ui/bossbar.png" type="Texture" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="BitMap" id=3]
+data = {
+"data": PoolByteArray(  ),
+"size": Vector2( 0, 0 )
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[node name="UI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 96.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBarLayout" type="VBoxContainer" parent="."]
+margin_top = 32.0
+margin_right = 176.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scaling" type="Node2D" parent="LifeBarLayout"]
+scale = Vector2( 2, 2 )
+
+[node name="Life Bar" type="TextureProgress" parent="LifeBarLayout/Scaling"]
+margin_left = 16.0
+margin_right = 95.0
+margin_bottom = 16.0
+value = 100.0
+texture_under = ExtResource( 12 )
+texture_progress = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BossbarLayout" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scaling" type="Node2D" parent="BossbarLayout"]
+scale = Vector2( 3, 3 )
+
+[node name="Life Bar" type="TextureProgress" parent="BossbarLayout/Scaling"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.0
+margin_top = 10.6667
+margin_right = 91.0
+margin_bottom = 50.6667
+value = 100.0
+texture_under = ExtResource( 15 )
+texture_progress = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -224.0
+margin_top = 32.0
+margin_bottom = 57.0
+text = "Score: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.29 )
+
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 6 )]
+margin_left = -136.0
+margin_top = 128.0
+margin_right = 136.0
+margin_bottom = 153.0
+text = "Paused"
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -96.0
+margin_right = 96.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_bottom = 61.0
+
+[node name="ChangeSceneButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 1 )]
+margin_top = 65.0
+margin_bottom = 126.0
+text = "Main Screen"
+next_scene_path = "res://screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
+margin_top = 130.0
+margin_bottom = 192.0
+
+[node name="TouchScreen" type="Node2D" parent="."]
+
+[node name="left" type="TouchScreenButton" parent="TouchScreen"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 32, 416 )
+scale = Vector2( 4.36364, 4.36364 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 8 )
+shape = SubResource( 1 )
+action = "ui_left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="TouchScreen"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 224, 416 )
+scale = Vector2( 4.36364, 4.36364 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 10 )
+shape = SubResource( 2 )
+action = "ui_right"
+visibility_mode = 1
+
+[node name="up" type="TouchScreenButton" parent="TouchScreen"]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 128, 320 )
+scale = Vector2( 4.36364, 4.36364 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 11 )
+bitmask = SubResource( 3 )
+shape = SubResource( 2 )
+action = "ui_up"
+visibility_mode = 1
+
+[node name="jump" type="TouchScreenButton" parent="TouchScreen"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 864, 416 )
+scale = Vector2( 4.36364, 4.36364 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 9 )
+shape = SubResource( 4 )
+action = "jump"
+visibility_mode = 1
+
+[node name="attack" type="TouchScreenButton" parent="TouchScreen"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 704, 416 )
+scale = Vector2( 4.36364, 4.36364 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 9 )
+shape = SubResource( 4 )
+action = "attack"
+visibility_mode = 1

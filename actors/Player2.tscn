@@ -1,0 +1,232 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://assets/animations/protagonist/idle2.png" type="Texture" id=1]
+[ext_resource path="res://actors/player.gd" type="Script" id=2]
+[ext_resource path="res://assets/animations/protagonist/walk3.png" type="Texture" id=3]
+[ext_resource path="res://assets/animations/protagonist/walk2.png" type="Texture" id=4]
+[ext_resource path="res://assets/animations/protagonist/atk3.png" type="Texture" id=5]
+[ext_resource path="res://assets/animations/protagonist/jump1.png" type="Texture" id=6]
+[ext_resource path="res://assets/animations/protagonist/jump2.png" type="Texture" id=7]
+[ext_resource path="res://assets/animations/protagonist/idle1.png" type="Texture" id=8]
+[ext_resource path="res://assets/animations/protagonist/walk1.png" type="Texture" id=9]
+[ext_resource path="res://assets/animations/protagonist/atk5.png" type="Texture" id=10]
+[ext_resource path="res://assets/animations/protagonist/idle4.png" type="Texture" id=11]
+[ext_resource path="res://assets/animations/protagonist/fall.png" type="Texture" id=12]
+[ext_resource path="res://assets/animations/protagonist/atk1.png" type="Texture" id=13]
+[ext_resource path="res://assets/animations/protagonist/atk2.png" type="Texture" id=14]
+[ext_resource path="res://assets/animations/protagonist/atk4.5.png" type="Texture" id=15]
+[ext_resource path="res://assets/animations/protagonist/atk4.png" type="Texture" id=16]
+[ext_resource path="res://assets/animations/protagonist/fall_t.png" type="Texture" id=17]
+[ext_resource path="res://assets/animations/protagonist/idle3.png" type="Texture" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 18 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "attack",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.8596, 10.5375 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 9, 31 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 11.04, 0.520096 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 32.292 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Dash"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "dashanim"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyDetector/SwordHitbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.2098, -15.2527 ), Vector2( -17.5422, -35.9958 ), Vector2( -35.1985, -23.4521 ), Vector2( -34.0094, -9.6581 ), Vector2( -19.5851, 4.76619 ), Vector2( 3.16089, -3.27812 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attackend"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyDetector/SwordHitbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyDetector/SwordHitbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15.6966, -35.5813 ), Vector2( 24.0624, -36.133 ), Vector2( 35.3758, -23.7675 ), Vector2( 33.6519, -10.8472 ), Vector2( 18.9502, 4.40926 ), Vector2( -3.24099, -2.80289 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attackend"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyDetector/SwordHitbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 8
+script = ExtResource( 2 )
+speed = Vector2( 300, 750 )
+gravity = 2000.0
+stomp_impulse = 500.0
+
+[node name="Animation" type="AnimatedSprite" parent="."]
+position = Vector2( 3, 0 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 2
+playing = true
+offset = Vector2( -6, 0 )
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+monitoring = false
+collision_layer = 32
+collision_mask = 0
+
+[node name="SwordHitbox" type="CollisionShape2D" parent="EnemyDetector"]
+modulate = Color( 0.160784, 0.12549, 0.721569, 1 )
+position = Vector2( 11.2098, -15.2527 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+modulate = Color( 0.945098, 1, 0, 1 )
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
+
+[node name="Player Camera" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 2112
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+
+[node name="diebox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="pitbox" type="CollisionShape2D" parent="diebox"]
+position = Vector2( 0, -32.7274 )
+shape = SubResource( 4 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="HurtHitbox" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 5 )
+
+[node name="AnimationTimer" type="AnimationPlayer" parent="."]
+anims/Dash = SubResource( 6 )
+anims/Flipped = SubResource( 7 )
+anims/Hitbox = SubResource( 8 )
+[connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="area_entered" from="diebox" to="." method="_on_diebox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_enemy_collided"]
