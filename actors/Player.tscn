@@ -172,7 +172,6 @@ stomp_impulse = 500.0
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 speed_scale = 3.0
 playing = true
 offset = Vector2( -6, 0 )
@@ -228,6 +227,7 @@ shape = SubResource( 5 )
 anims/Dash = SubResource( 6 )
 anims/Flipped = SubResource( 7 )
 anims/Hitbox = SubResource( 8 )
+
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="area_entered" from="diebox" to="." method="_on_diebox_area_entered"]

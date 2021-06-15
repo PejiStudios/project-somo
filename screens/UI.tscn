@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ui/ChangeSceneButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/UI.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/ui/lifebar.png" type="Texture" id=13]
 [ext_resource path="res://assets/ui/bossbaralt.png" type="Texture" id=14]
 [ext_resource path="res://assets/ui/bossbar.png" type="Texture" id=15]
+[ext_resource path="res://screens/fps.gd" type="Script" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -199,3 +200,12 @@ pressed = ExtResource( 9 )
 shape = SubResource( 4 )
 action = "attack"
 visibility_mode = 1
+
+[node name="fpscounter" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 25.0
+align = 1
+script = ExtResource( 16 )

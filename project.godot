@@ -37,6 +37,7 @@ MusicPlayer="*res://autoload/MusicPlayer.tscn"
 
 [debug]
 
+settings/fps/force_fps=30
 gdscript/warnings/unused_signal=false
 
 [display]
