@@ -12,7 +12,7 @@ func _ready() -> void:
 	$EnemyDetector/SwordHitbox.disabled = true
 	$EnemyDetector/SwordHitbox.visible = false
 
-func _process(delta):
+func _process(_delta):
 	#print(Engine.get_frames_per_second())
 	pass
 

@@ -33,6 +33,10 @@ data = {
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -1.0
+margin_right = -1.0
+margin_bottom = -1.0
 theme = ExtResource( 3 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -41,7 +45,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1024.0
-margin_bottom = 96.0
+margin_bottom = 64.0
 texture = ExtResource( 7 )
 expand = true
 __meta__ = {
@@ -60,9 +64,12 @@ __meta__ = {
 scale = Vector2( 2, 2 )
 
 [node name="Life Bar" type="TextureProgress" parent="LifeBarLayout/Scaling"]
-margin_left = 16.0
-margin_right = 95.0
-margin_bottom = 16.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 2.5
+margin_top = -12.5
+margin_right = 81.5
+margin_bottom = 3.5
 value = 100.0
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
@@ -85,11 +92,13 @@ scale = Vector2( 3, 3 )
 
 [node name="Life Bar" type="TextureProgress" parent="BossbarLayout/Scaling"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -91.0
-margin_top = 10.6667
+margin_top = 13.5685
 margin_right = 91.0
-margin_bottom = 50.6667
+margin_bottom = 18.5685
 value = 100.0
 texture_under = ExtResource( 15 )
 texture_progress = ExtResource( 14 )
@@ -101,8 +110,8 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -224.0
-margin_top = 32.0
-margin_bottom = 57.0
+margin_top = 8.16208
+margin_bottom = 33.1621
 text = "Score: %s"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -207,5 +216,7 @@ anchor_right = 0.5
 margin_left = -20.0
 margin_right = 20.0
 margin_bottom = 25.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "FPS"
 align = 1
 script = ExtResource( 16 )
