@@ -11,7 +11,8 @@ func _process(_delta):
 	temptext += "\n PS: " + str(playerstate)
 	temptext += "\nFlipped: " + str($"/root/Level/Player".flipped)
 	temptext += "\nd timer: " + str($"/root/Level/Player/Dtimer".time_left)
-	temptext += "\nis timer off?: " + str($"/root/Level/Player/Dtimer".is_stopped())
+	temptext += "\nx speed: " + str($"/root/Level/Player".x_speed)
+	temptext += "\ny speed: " + str($"/root/Level/Player".y_speed)
 	text = temptext
 func _on_ps(ps):
 	playerstate = ps

@@ -211,12 +211,14 @@ action = "attack"
 visibility_mode = 1
 
 [node name="fpscounter" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 25.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -12.5
+margin_right = 42.0
+margin_bottom = 12.5
 rect_scale = Vector2( 0.5, 0.5 )
 text = "FPS"
-align = 1
 script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

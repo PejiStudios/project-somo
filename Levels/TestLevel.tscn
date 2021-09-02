@@ -79,14 +79,14 @@ position = Vector2( 512, 288 )
 scale = Vector2( 2, 1.90509 )
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 200, 450 )
 
 [node name="Animation" parent="Player" index="0"]
-frame = 1
+frame = 2
 
 [editable path="TileMap"]
 [editable path="Player"]
