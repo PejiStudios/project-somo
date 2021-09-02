@@ -23,7 +23,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 752, 32 )
 
-[node name="TestLevel" type="Node2D"]
+[node name="Level" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 2112.0 ],
 "_edit_vertical_guides_": [ 3264.0, 3264.0, 3264.0, 3264.0 ]
@@ -64,6 +64,9 @@ tile_data = PoolIntArray( 196608, 5, 0, 196639, 536870917, 0, 262144, 5, 0, 2621
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 100, 410 )
 
+[node name="Animation" parent="Player" index="0"]
+frame = 7
+
 [node name="Player Camera" parent="Player" index="3"]
 limit_bottom = 256
 
@@ -74,7 +77,6 @@ position = Vector2( 512, 288 )
 scale = Vector2( 2, 1.90509 )
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
