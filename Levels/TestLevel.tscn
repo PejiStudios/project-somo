@@ -71,6 +71,7 @@ position = Vector2( 510, -161 )
 position = Vector2( 862, -97 )
 
 [node name="bckgndMus" parent="." instance=ExtResource( 8 )]
+volume_db = -80.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -79,14 +80,14 @@ position = Vector2( 512, 288 )
 scale = Vector2( 2, 1.90509 )
 z_as_relative = false
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 200, 450 )
 
 [node name="Animation" parent="Player" index="0"]
-frame = 2
+frame = 0
 
 [editable path="TileMap"]
 [editable path="Player"]
