@@ -55,7 +55,6 @@ func _physics_process(_delta: float) -> void:
 		4:
 			pass
 	attack()
-	if attacking == false: moveanimation()
 	emit_signal("player_state",playerstate)
 
 func movement() -> void:
@@ -79,25 +78,6 @@ func dash_movement() -> void:
 		hitstun = false
 	x_speed = _velocity.x
 	y_speed = _velocity.y
-
-func moveanimation():
-	if is_on_floor() and _velocity.x == 0.0:
-		$Animation.play("idle")
-		$Animation.set_offset (Vector2(-5,0))
-	elif _velocity.x != 0.0 and is_on_floor():
-		$Animation.play("walk")
-	elif _velocity.y < 0.0 and not is_on_floor():
-		$Animation.play("jump")
-	elif _velocity.y > 0.0 and not is_on_floor():
-		$Animation.play("fall")
-	if _velocity.x < 0.0:
-		flipped = 1
-		$Animation.flip_h = false
-		$Animation.set_offset (Vector2(-1,0))
-	elif _velocity.x > 0.0:
-		flipped = -1
-		$Animation.flip_h = true
-		$Animation.set_offset (Vector2(-6,0))
 
 
 func get_direction() -> Vector2:
