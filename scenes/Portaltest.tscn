@@ -1,18 +1,18 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/tileset/compiled_tilesets/TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://object/coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://object/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/Test2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Test2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://autoload/MusicPlayer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/backgrounds/test4.png" type="Texture" id=9]
 [ext_resource path="res://assets/backgrounds/test1.png" type="Texture" id=10]
 [ext_resource path="res://assets/backgrounds/test3.png" type="Texture" id=11]
 [ext_resource path="res://assets/backgrounds/test2.png" type="Texture" id=12]
-[ext_resource path="res://Levels/TestLevel.gd" type="Script" id=13]
+[ext_resource path="res://scenes/TestLevel.gd" type="Script" id=13]
 
 
 [sub_resource type="SpriteFrames" id=1]
