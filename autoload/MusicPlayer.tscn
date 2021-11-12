@@ -4,3 +4,4 @@
 
 [node name="bckgndMus" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
+autoplay = true
