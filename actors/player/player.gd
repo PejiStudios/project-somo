@@ -4,6 +4,7 @@ export var stomp_impulse = 1000.0
 var playerstate = 0
 signal player_state(ps)
 signal start_scroll
+signal died
 var attacking = false
 var flipped = -1
 var hitstun = false
@@ -14,20 +15,11 @@ var x_speed
 var y_speed
 
 func _ready() -> void:
+	$"/root/Level".connect("die", self, "reset")
 	PlayerData.teleporting = false
 
 func _process(_delta):
 	pass
-
-func _on_EnemyDetector_area_entered(_area: Area2D) -> void:
-	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
-
-func _on_EnemyDetector_body_entered(_body: Node) -> void:
-	die()
-
-func _on_diebox_area_entered(_area: Area2D) -> void:
-	PlayerData.deaths += 1
-	queue_free()
 
 func _physics_process(_delta: float) -> void:
 	if is_on_floor():
@@ -79,19 +71,10 @@ func calculate_move_velocity(
 		out.y = 0.0
 	return out
 
-func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vector2:
-	var out: = linear_velocity
-	out.y = -impulse
-	return out
-
-func die() -> void:
-	attacking = false
-	PlayerData.life -= 10
-	PlayerData.hitstun += 1
-	if PlayerData.life < 1:
-		PlayerData.deaths += 1
-		queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		attacking = true
+
+func reset():
+	position.y = position.y - $"/root/Level/camera".pos_before_reset

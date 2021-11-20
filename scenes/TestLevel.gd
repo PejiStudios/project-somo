@@ -2,6 +2,7 @@ extends Node2D
 
 var worldstate
 var worldspeed
+signal die
 
 func _ready() -> void:
 	worldstate = "menu"
@@ -9,7 +10,7 @@ func _ready() -> void:
 	MusicPlayer.play()
 
 func _process(delta):
-	print(worldstate)
+#	print(worldstate)
 	match worldstate:
 		"menu":
 			waitfor_start()
@@ -27,3 +28,8 @@ func game_process():
 	if worldspeed >= 45:
 		worldspeed = 45
 	worldspeed = 15
+
+
+func touched_sun(area):
+	worldstate = "menu"
+	emit_signal("die")

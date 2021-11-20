@@ -132,8 +132,7 @@ dash={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="enemy"
-2d_physics/layer_3="collectables"
-2d_physics/layer_4="world"
-2d_physics/layer_5="pit"
-2d_physics/layer_6="friendly_weapons"
+2d_physics/layer_2="world"
+2d_physics/layer_3="sun"
+2d_physics/layer_4="tree"
+2d_physics/layer_5="fire"
